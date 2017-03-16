@@ -25,33 +25,32 @@ import javax.sql.DataSource;
 import java.util.List;
 
 /**
- * Created by SharingWoo on 2017/3/15.
+ * Created by SharingWoo on 2017/3/16.
  */
 @Configuration
-@MapperScan(basePackages = {"com.example.mapper.bs"}, sqlSessionFactoryRef = "bsSqlSessionFactory")
-public class BSDataSourceConfig {
+@MapperScan(basePackages = {"com.example.mapper.sharing"}, sqlSessionFactoryRef = "sharingSqlSessionFactory")
+public class SharingDataSourceConfig {
 
-    private Logger logger = LoggerFactory.getLogger(BSDataSourceConfig.class);
+    private Logger logger = LoggerFactory.getLogger(SharingDataSourceConfig.class);
 
-    @Value("${bs.jdbc.type}")
-    private String bsJdbcType;
+    @Value("${sharing.jdbc.type}")
+    private String sharingJdbcType;
 
     @Bean
-    @Primary
-    @ConfigurationProperties(prefix = "bs.jdbc")
-    public DataSource bsDataSource() {
+    @ConfigurationProperties(prefix = "sharing.jdbc")
+    public DataSource sharingDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "bsSqlSessionFactory")
-    public SqlSessionFactory bsSqlSessionFactory(@Qualifier("bsDataSource") DataSource bsDataSource, List<MapperLocations> mapperLocationsList) throws Exception {
+    @Bean(name = "sharingSqlSessionFactory")
+    public SqlSessionFactory sharingSqlSessionFactory(@Qualifier("sharingDataSource") DataSource sharingDataSource, List<MapperLocations> mapperLocationsList) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(bsDataSource);
-        logger.info("bsJdbcType:" + bsJdbcType);
+        bean.setDataSource(sharingDataSource);
+        logger.info("sharingJdbcType:" + sharingJdbcType);
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource[] resources = {};
         for (MapperLocations mapperLocations : mapperLocationsList) {
-            String[] locations = mapperLocations.getLocations(MapperLocations.Type.BS);
+            String[] locations = mapperLocations.getLocations(MapperLocations.Type.SHARING);
             if (ArrayUtils.isNotEmpty(locations)) {
                 for (String location : locations) {
                     resources = ArrayUtils.addAll(resources, resolver.getResources(location));
@@ -65,17 +64,17 @@ public class BSDataSourceConfig {
     }
 
     @Bean
-    public MapperLocations bsLocations(@Value("${bs.jdbc.type}") String jdbcType) {
-        return new MapperLocations("classpath*:" + jdbcType + "/com/example/bs/sqlmap/*Mapper.xml");
+    public MapperLocations sharingLocations(@Value("${sharing.jdbc.type}") String jdbcType) {
+        return new MapperLocations("classpath*:" + jdbcType + "/com/example/sharing/sqlmap/*Mapper.xml");
     }
 
     @Bean
-    public JdbcTemplate bsJdbcTemplate(@Qualifier("bsDataSource") DataSource bsDataSource) {
-        return new JdbcTemplate(bsDataSource);
+    public JdbcTemplate sharingJdbcTemplate(@Qualifier("sharingDataSource") DataSource sharingDataSource) {
+        return new JdbcTemplate(sharingDataSource);
     }
 
     @Bean
-    public PlatformTransactionManager bsTransactionManager(@Qualifier("bsDataSource") DataSource bsDataSource) {
-        return new DataSourceTransactionManager(bsDataSource);
+    public PlatformTransactionManager sharingTransactionManager(@Qualifier("sharingDataSource") DataSource sharingDataSource) {
+        return new DataSourceTransactionManager(sharingDataSource);
     }
 }

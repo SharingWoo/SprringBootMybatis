@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.bs.MerchantMapper" >
+    <resultMap id="merResultMap"
+               type="com.example.pojo.Merchant">
+        <id column="MERCHANT_ID" property="merchantId" jdbcType="VARCHAR" />
+        <result column="MERCHANT_NAME" property="merchantName" jdbcType="VARCHAR" />
+        <result column="ORGANIZATION_ID" property="organizationId" jdbcType="VARCHAR" />
+        <result column="MERCHANT_TYPE" property="merchantType" jdbcType="VARCHAR" />
+        <result column="BUSINESS_ID" property="businessId" jdbcType="VARCHAR" />
+        <result column="CORPORATE_NAME" property="corporateName" jdbcType="VARCHAR" />
+        <result column="CORPORATE_TYPE" property="corporateType" jdbcType="VARCHAR" />
+        <result column="CORPORATE_NO" property="corporateNo" jdbcType="VARCHAR" />
+        <result column="SETTLEMENT_ACCT_NAME" property="settlementAcctName" jdbcType="VARCHAR" />
+        <result column="SETTLEMENT_ACCT" property="settlementAcct" jdbcType="VARCHAR" />
+        <result column="SETTLEMENT_ACCT_TYPE" property="settlementAcctType" jdbcType="VARCHAR" />
+        <result column="SETTLEMENT_BANK" property="settlementBank" jdbcType="VARCHAR" />
+        <result column="SETTLEMENT_BANK_ADDR" property="settlementBankAddr" jdbcType="VARCHAR" />
+        <result column="MERCHANT_SETTLEMENT_CYCLE" property="merchantSettlementCycle" jdbcType="VARCHAR" />
+        <result column="OPENING_TIME" property="openingTime" jdbcType="TIMESTAMP" />
+        <result column="REGISTERED_CAPITAL" property="registeredCapital" jdbcType="VARCHAR" />
+        <result column="MCC" property="mcc" jdbcType="VARCHAR" />
+        <result column="CONTACT_PERSON" property="contactPerson" jdbcType="VARCHAR" />
+        <result column="CONTACT_TELEPHONE" property="contactTelephone" jdbcType="VARCHAR" />
+        <result column="CONTACT_PHONE" property="contactPhone" jdbcType="VARCHAR" />
+        <result column="CONTACT_EMAIL" property="contactEmail" jdbcType="VARCHAR" />
+        <result column="PRESET_AMOUNT" property="presetAmount" jdbcType="DECIMAL" />
+        <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+        <result column="CITY" property="city" jdbcType="VARCHAR" />
+        <result column="ADDR" property="addr" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="VARCHAR" />
+        <result column="BUSINESS_DATE" property="businessDate" jdbcType="TIMESTAMP" />
+        <result column="CERTIFICATE_DATE" property="certificateDate" jdbcType="TIMESTAMP" />
+        <result column="MERCHANT_SOURCE" property="merchantSource" jdbcType="VARCHAR" />
+        <result column="MERCHANT_DEVELOP" property="merchantDevelop" jdbcType="VARCHAR" />
+        <result column="WITHDRAW_TIME" property="withdrawTime" jdbcType="TIMESTAMP" />
+        <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="MERCHANT_BUSINESS_IDENT" property="merchantBusinessIdent" jdbcType="VARCHAR" />
+        <result column="MERCHANT_PRODUCT_IDENT" property="merchantProductIdent" jdbcType="VARCHAR" />
+        <result column="TRANS_STATUS" property="transStatus" jdbcType="VARCHAR" />
+        <result column="CREDIT_STATUS" property="creditStatus" jdbcType="VARCHAR" />
+        <result column="CAPITAL_CLEAN_STATUS" property="capitalCleanStatus" jdbcType="VARCHAR" />
+        <result column="CREATE_AT" property="createAt" jdbcType="TIMESTAMP" />
+        <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR" />
+        <result column="LAST_UPDATE_AT" property="lastUpdateAt" jdbcType="TIMESTAMP" />
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        MERCHANT_ID, MERCHANT_NAME, ORGANIZATION_ID, MERCHANT_TYPE, BUSINESS_ID, CORPORATE_NAME,
+        CORPORATE_TYPE, CORPORATE_NO, SETTLEMENT_ACCT_NAME, SETTLEMENT_ACCT, SETTLEMENT_ACCT_TYPE,
+        SETTLEMENT_BANK, SETTLEMENT_BANK_ADDR, MERCHANT_SETTLEMENT_CYCLE, OPENING_TIME, REGISTERED_CAPITAL,
+        MCC, CONTACT_PERSON, CONTACT_TELEPHONE, CONTACT_PHONE, CONTACT_EMAIL, PRESET_AMOUNT,
+        PROVINCE, CITY, ADDR, STATUS, BUSINESS_DATE, CERTIFICATE_DATE, MERCHANT_SOURCE, MERCHANT_DEVELOP,
+        WITHDRAW_TIME, UPDATE_TIME, MERCHANT_BUSINESS_IDENT, MERCHANT_PRODUCT_IDENT, TRANS_STATUS,
+        CREDIT_STATUS, CAPITAL_CLEAN_STATUS, CREATE_AT, CREATE_BY, LAST_UPDATE_AT, LAST_UPDATE_BY
+    </sql>
+    <select id="getCount" resultType="java.lang.Integer">
+        select
+        count(1)
+        from OFFLINE_MERCHANT
+    </select>
+
+</mapper>

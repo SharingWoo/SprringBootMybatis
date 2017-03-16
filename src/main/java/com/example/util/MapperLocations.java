@@ -6,7 +6,7 @@ package com.example.util;
 public class MapperLocations {
 
     public enum Type {
-        BS, HOME
+        BS, HOME,SHARING
     }
 
     private transient Type type;
