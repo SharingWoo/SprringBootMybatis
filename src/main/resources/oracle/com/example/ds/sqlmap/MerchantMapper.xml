@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.MerchantMapper" >
+<!--    <resultMap id="BaseResultMap" type="cn.com.bsfit.frms.ds.pojo.DSOfflineOrder" >
+        <id column="ORDER_ID" property="orderId" jdbcType="VARCHAR" />
+        <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+        <result column="BATCH_NO" property="batchNo" jdbcType="VARCHAR" />
+        <result column="SYS_TRACE_NO" property="sysTraceNo" jdbcType="VARCHAR" />
+        <result column="POS_PHONE_NO" property="posPhoneNo" jdbcType="VARCHAR" />
+        <result column="AUTH_IDF_REP_CODE" property="authIdfRepCode" jdbcType="VARCHAR" />
+        <result column="TRANS_AMOUNT" property="transAmount" jdbcType="DECIMAL" />
+        <result column="REP_CODE" property="repCode" jdbcType="VARCHAR" />
+        <result column="ISSUE_BANK_CODE" property="issueBankCode" jdbcType="VARCHAR" />
+        <result column="CARD_MEDIUM" property="cardMedium" jdbcType="VARCHAR" />
+        <result column="CARD_TYPE" property="cardType" jdbcType="VARCHAR" />
+        <result column="CARD_BIN" property="cardBin" jdbcType="VARCHAR" />
+        <result column="MERCHANT_ID" property="merchantId" jdbcType="VARCHAR" />
+        <result column="POS_ID" property="posId" jdbcType="VARCHAR" />
+        <result column="TRANS_PRV" property="transPrv" jdbcType="VARCHAR" />
+        <result column="TRANS_CITY" property="transCity" jdbcType="VARCHAR" />
+        <result column="TRANS_CODE" property="transCode" jdbcType="VARCHAR" />
+        <result column="TRANS_TYPE" property="transType" jdbcType="VARCHAR" />
+        <result column="TRANS_TIME" property="transTime" jdbcType="TIMESTAMP" />
+        <result column="CARD_LOCATION_PRV" property="cardLocationPrv" jdbcType="VARCHAR" />
+        <result column="CARD_LOCATION_CITY" property="cardLocationCity" jdbcType="VARCHAR" />
+        <result column="RULES_TYPE" property="rulesType" jdbcType="VARCHAR" />
+        <result column="TRANS_CURRENCY_CODE" property="transCurrencyCode" jdbcType="VARCHAR" />
+        <result column="PRODUCT_TYPE" property="productType" jdbcType="VARCHAR" />
+        <result column="TRANS_ADDR_STATE" property="transAddrState" jdbcType="VARCHAR" />
+        <result column="TRANS_ADDR_PRV" property="transAddrPrv" jdbcType="VARCHAR" />
+        <result column="TRANS_ADDR_CITY" property="transAddrCity" jdbcType="VARCHAR" />
+        <result column="DATA_SOURCE" property="dataSource" jdbcType="VARCHAR" />
+        <result column="INDUSTRY_DEF" property="industryDef" jdbcType="VARCHAR" />
+        <result column="MERCHANT_FIELD_PROV" property="merchantFieldProv" jdbcType="VARCHAR" />
+        <result column="MERCHANT_FIELD_CITY" property="merchantFieldCity" jdbcType="VARCHAR" />
+        <result column="MERCHANT_TYPE" property="merchantType" jdbcType="VARCHAR" />
+        <result column="CREATE_AT" property="createAt" jdbcType="TIMESTAMP" />
+        <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR" />
+        <result column="LAST_UPDATE_AT" property="lastUpdateAt" jdbcType="TIMESTAMP" />
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy" jdbcType="VARCHAR" />
+    </resultMap>-->
+
+<!--    <sql id="Base_Column_List" >
+        ORDER_ID, CARD_NO, BATCH_NO, SYS_TRACE_NO, POS_PHONE_NO, AUTH_IDF_REP_CODE, TRANS_AMOUNT,
+        REP_CODE, ISSUE_BANK_CODE, CARD_MEDIUM, CARD_TYPE, CARD_BIN, MERCHANT_ID, POS_ID,
+        TRANS_PRV, TRANS_CITY, TRANS_CODE, TRANS_TYPE, TRANS_TIME, CARD_LOCATION_PRV, CARD_LOCATION_CITY,
+        RULES_TYPE, TRANS_CURRENCY_CODE, PRODUCT_TYPE, TRANS_ADDR_STATE, TRANS_ADDR_PRV,
+        TRANS_ADDR_CITY, DATA_SOURCE, INDUSTRY_DEF, MERCHANT_FIELD_PROV, MERCHANT_FIELD_CITY,
+        MERCHANT_TYPE, CREATE_AT, CREATE_BY, LAST_UPDATE_AT, LAST_UPDATE_BY
+    </sql>-->
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select
+        count(1)
+        from OFFLINE_MERCHANT
+    </select>
+
+</mapper>
